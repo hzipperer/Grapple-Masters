@@ -10,7 +10,7 @@ public class GrapplingGun : MonoBehaviour
     public LayerMask whatIsGrappleable;
     public Transform gunTip, camera, player;
     private float maxDistance = 100f;
-    private SpringJoint joint;
+    public static SpringJoint joint;
 
     void Awake()
     {
@@ -19,13 +19,16 @@ public class GrapplingGun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!PauseMenu.GameIsPaused)
         {
-            StartGrapple();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            StopGrapple();
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartGrapple();
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                StopGrapple();
+            }
         }
     }
 

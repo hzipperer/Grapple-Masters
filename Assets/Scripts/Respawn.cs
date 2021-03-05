@@ -21,6 +21,7 @@ public class Respawn : MonoBehaviour
             player.velocity = Vector3.zero;
             player.angularVelocity = Vector3.zero;
             transform.position = respawnPosition;
+            Destroy(GrapplingGun.joint);
         }
     }
 }
