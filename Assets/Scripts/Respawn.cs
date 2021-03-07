@@ -15,7 +15,7 @@ public class Respawn : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Lava")
+        if (col.gameObject.layer == 7)
         {
             Rigidbody player = this.gameObject.GetComponent<Rigidbody>();
             player.velocity = Vector3.zero;
