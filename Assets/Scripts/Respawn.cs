@@ -5,6 +5,7 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     public GameObject respawn;
+    public GameObject goalMenuUI;
     public Vector3 respawnPosition;
 
     void Start()
@@ -22,6 +23,12 @@ public class Respawn : MonoBehaviour
             player.angularVelocity = Vector3.zero;
             transform.position = respawnPosition;
             Destroy(GrapplingGun.joint);
+        }
+        else if (col.gameObject.name == "Goal")
+        {
+            goalMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+            PauseMenu.GameIsPaused = true;
         }
     }
 }
