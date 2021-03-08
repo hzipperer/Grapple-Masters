@@ -10,7 +10,6 @@ public class Respawn : MonoBehaviour
 
     void Start()
     {
-        respawn = GameObject.Find("Respawn");
         respawnPosition = respawn.transform.position;
     }
 

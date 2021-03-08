@@ -65,17 +65,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!PauseMenu.GameIsPaused)
+        if (Countdown.GameStart)
         {
-            MyInput();
-            Look();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            if (!PauseMenu.GameIsPaused)
+            {
+                MyInput();
+                Look();
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
     }
 
