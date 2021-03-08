@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class TimerController : MonoBehaviour
 {
     public static TimerController instance;
-    public string level;
 
     public Text timeCounter;
 
@@ -20,7 +19,6 @@ public class TimerController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        level = SceneManager.GetActiveScene().name;
     }
 
     // Start is called before the first frame update

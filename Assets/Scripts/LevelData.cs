@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelData : MonoBehaviour
+[System.Serializable]
+public class LevelData
 {
-    public string level;
+    public string name;
     public float bestTime;
 
-    public LevelData (TimerController time)
+    public LevelData (Level level)
     {
-        level = time.level;
-        bestTime = time.elapsedTime;
+        name = level.name;
+        bestTime = level.time;
     }
 }
