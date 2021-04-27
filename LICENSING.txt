@@ -1,0 +1,19 @@
+Licensing Information:
+
+Huge shoutout to Dani Tutorials and Brackeys on Youtube for providing excellent Unity tutorials ranging
+from character movement to menu creation.
+
+Models:
+
+Modern Guns: Handgun by Nokobot - Unity Asset Store
+
+Music:
+
+All music Licensed under the Creative Commons Attribution 4.0 International License with credit
+
+Synapse by Shane Ivers - https://www.silvermansound.com
+Nightchaser by Shane Ivers - https://www.silvermansound.com
+Tape Star by Shane Ivers - https://www.silvermansound.com
+Diaphanous by Shane Ivers - https://www.silvermansound.com
+Womp by Shane Ivers - https://www.silvermansound.com
+

@@ -15,4 +15,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    void Awake()
+    {
+        SaveSystem.CreateDirectory();
+    }
+
 }

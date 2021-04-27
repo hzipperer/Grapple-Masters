@@ -43,4 +43,14 @@ public static class SaveSystem
         directory.Delete(true);
         Directory.CreateDirectory(path);
     }
+
+    public static void CreateDirectory()
+    {
+        string path = Application.persistentDataPath + "/saves/";
+        DirectoryInfo directory = new DirectoryInfo(path);
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+    }
 }
