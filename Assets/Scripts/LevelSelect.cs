@@ -32,14 +32,26 @@ public class LevelSelect : MonoBehaviour
 
     public void Update()
     {
-        LevelData data;
+        LevelData data; 
+        double Master1Time = 9.0000;
+        double Master2Time = 35.0000;
+        double Master3Time = 95.0000;
 
         if (SaveSystem.Load("Level1") != null)
         {
             data = SaveSystem.Load("Level1");
+            Debug.Log("Level1 Time: " + data.bestTime);
             timePlaying = TimeSpan.FromSeconds(data.bestTime);
             timePlayingStr = "Best Time: " + timePlaying.ToString("mm':'ss'.'ffff");
             level1BestTime.text = timePlayingStr;
+            if (data.bestTime < Master1Time)
+            {
+                level1BestTime.color = new Color32(255, 189, 57, 255);
+            }
+            else
+            {
+                level1BestTime.color = new Color32(255, 255, 255, 255);
+            }
 
         }
         else if (SaveSystem.Load("Level1") == null)
@@ -51,9 +63,18 @@ public class LevelSelect : MonoBehaviour
         if (SaveSystem.Load("Level2") != null)
         {
             data = SaveSystem.Load("Level2");
+            Debug.Log("Level2 Time: " + data.bestTime);
             timePlaying = TimeSpan.FromSeconds(data.bestTime);
             timePlayingStr = "Best Time: " + timePlaying.ToString("mm':'ss'.'ffff");
             level2BestTime.text = timePlayingStr;
+            if (data.bestTime < Master2Time)
+            {
+                level2BestTime.color = new Color32(255, 189, 57, 255);
+            }
+            else
+            {
+                level2BestTime.color = new Color32(255, 255, 255, 255);
+            }
 
         }
         else if (SaveSystem.Load("Level2") == null)
@@ -65,9 +86,18 @@ public class LevelSelect : MonoBehaviour
         if (SaveSystem.Load("Level3") != null)
         {
             data = SaveSystem.Load("Level3");
+            Debug.Log("Level3 Time: " + data.bestTime);
             timePlaying = TimeSpan.FromSeconds(data.bestTime);
             timePlayingStr = "Best Time: " + timePlaying.ToString("mm':'ss'.'ffff");
             level3BestTime.text = timePlayingStr;
+            if (data.bestTime < Master3Time)
+            {
+                level3BestTime.color = new Color32(255, 189, 57, 255);
+            }
+            else
+            {
+                level3BestTime.color = new Color32(255, 255, 255, 255);
+            }
 
         }
         else if (SaveSystem.Load("Level3") == null)

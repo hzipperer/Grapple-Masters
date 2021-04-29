@@ -10,20 +10,13 @@ public class MusicPlayer : MonoBehaviour
 
     AudioClip currentSong;
 
-    private float songLength;
-
-    private Coroutine musicLoop;
-
-    private Queue musicQueue;
 
     // Start is called before the first frame update
     void Start()
     {
-        musicQueue = new Queue(musicClips);
-
+        currentSong = musicClips[1];
         musicSource = GetComponent<AudioSource>();
-
-        StartMusic();
+        PlayClip(currentSong);
     }
 
     public void PlayClip(AudioClip music)
@@ -31,68 +24,39 @@ public class MusicPlayer : MonoBehaviour
         musicSource.Stop();
         musicSource.clip = music;
         musicSource.Play();
-
     }
 
-    public void StopClip()
+    public void ChooseSong0()
     {
-        if (musicLoop != null)
-            StopCoroutine(musicLoop);
+            currentSong = musicClips[0];
+            PlayClip(currentSong);
     }
 
-    public void StartMusic()
+    public void ChooseSong1()
     {
-        musicLoop = StartCoroutine(musicQueue.LoopMusic(this, 3, PlayClip));
+        currentSong = musicClips[1];
+        PlayClip(currentSong);
     }
+
+    public void ChooseSong2()
+    {
+        currentSong = musicClips[2];
+        PlayClip(currentSong);
+    }
+
+    public void ChooseSong3()
+    {
+        currentSong = musicClips[3];
+        PlayClip(currentSong);
+    }
+
+    public void ChooseSong4()
+    {
+        currentSong = musicClips[4];
+        PlayClip(currentSong);
+    }
+     
 
 }
 
-public class Queue
-{
-    List<AudioClip> clips;
 
-    public Queue(List<AudioClip> clips)
-    {
-        this.clips = clips;
-    }
-
-    public IEnumerator LoopMusic(MonoBehaviour player, float delay, System.Action<AudioClip> playFunction)
-    {
-        while (true)
-        {
-            yield return player.StartCoroutine(Run(RandomizedList(clips), delay, playFunction));
-        }
-    }
-
-    public IEnumerator Run(List<AudioClip> tracks, float delay, System.Action<AudioClip> playFunction)
-    {
-        foreach (AudioClip clip in tracks)
-        {
-            playFunction(clip);
-
-            yield return new WaitForSeconds(clip.length + delay);
-        }
-    }
-
-    public List<AudioClip> RandomizedList(List<AudioClip> list)
-    {
-        List<AudioClip> copy = new List<AudioClip>(list);
-
-        int n = copy.Count;
-
-        while (n > 1)
-        {
-            n--;
-
-            int k = Random.Range(0, n + 1);
-
-            AudioClip value = copy[k];
-
-            copy[k] = copy[n];
-            copy[n] = value;
-        }
-
-        return copy;
-    }
-        
-}

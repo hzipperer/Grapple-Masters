@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GrapplingGun : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GrapplingGun : MonoBehaviour
     public Transform gunTip, camera, player;
     private float maxDistance = 100f;
     public static SpringJoint joint;
+    public GameObject image;
 
     void Awake()
     {
@@ -19,8 +21,18 @@ public class GrapplingGun : MonoBehaviour
 
     void Update()
     {
+        RaycastHit hit;
         if (!PauseMenu.GameIsPaused)
         {
+            if (Physics.Raycast(camera.position, camera.forward, out hit, maxDistance, whatIsGrappleable))
+            {
+                image.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+            }
+            else
+            {
+                image.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            }
+                
             if (Input.GetMouseButtonDown(0))
             {
                 StartGrapple();
