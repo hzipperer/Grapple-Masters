@@ -64,7 +64,7 @@ public class LevelSelect : MonoBehaviour
 
         if (SaveSystem.Load("Level3") != null)
         {
-            data = SaveSystem.Load("Level2");
+            data = SaveSystem.Load("Level3");
             timePlaying = TimeSpan.FromSeconds(data.bestTime);
             timePlayingStr = "Best Time: " + timePlaying.ToString("mm':'ss'.'ffff");
             level3BestTime.text = timePlayingStr;
