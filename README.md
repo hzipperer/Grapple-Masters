@@ -1,9 +1,18 @@
 # Grapple-Masters
 
 Are you a Grapple Master? Prove it by tackling this version of the classic game of "The Floor is Lava".
+
+## Objective
+In each level you must make it to the end (The red platform) without touching the lava. If at any point you do touch the lava you will
+get sent back to the start.
+
+Each level will start off with a 3 second countdown to let you know when your time will start.
+
+Try to beat each level as fast as you can. Your best times will be saved and displayed on the level select screen.
+
 If you can beat a level's Master Time, your best time will gild. This signifies that you are truly a Grapple Master.
 
-## Controls:
+## Controls
 
 WASD - Movement
 
